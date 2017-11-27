@@ -40,8 +40,8 @@ mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop << EOF
 [Desktop Entry]
 Type=Application
-Name=AudioCut
-Comment=AudioCut is GUI for shntool
+Name=pdf2png
+Comment=PDF to PNG converter
 Exec=%{name}
 Icon=%{name}
 StartupNotify=false
