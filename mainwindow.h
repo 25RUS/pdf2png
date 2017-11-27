@@ -22,6 +22,10 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void about();
+
+    void license();
+
 private:
     Ui::MainWindow *ui;
 };

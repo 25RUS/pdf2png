@@ -30,6 +30,8 @@ class Ui_MainWindow
 {
 public:
     QAction *actionClose;
+    QAction *actionAbout;
+    QAction *actionLicense;
     QWidget *centralWidget;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -40,6 +42,7 @@ public:
     QPushButton *pushButton_3;
     QMenuBar *menuBar;
     QMenu *menuFile;
+    QMenu *menuHelp;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -50,6 +53,10 @@ public:
         MainWindow->resize(491, 185);
         actionClose = new QAction(MainWindow);
         actionClose->setObjectName(QStringLiteral("actionClose"));
+        actionAbout = new QAction(MainWindow);
+        actionAbout->setObjectName(QStringLiteral("actionAbout"));
+        actionLicense = new QAction(MainWindow);
+        actionLicense->setObjectName(QStringLiteral("actionLicense"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton = new QPushButton(centralWidget);
@@ -79,6 +86,8 @@ public:
         menuBar->setGeometry(QRect(0, 0, 491, 27));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
+        menuHelp = new QMenu(menuBar);
+        menuHelp->setObjectName(QStringLiteral("menuHelp"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -88,7 +97,10 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuFile->menuAction());
+        menuBar->addAction(menuHelp->menuAction());
         menuFile->addAction(actionClose);
+        menuHelp->addAction(actionAbout);
+        menuHelp->addAction(actionLicense);
 
         retranslateUi(MainWindow);
 
@@ -98,13 +110,16 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "pdf2png", Q_NULLPTR));
-        actionClose->setText(QApplication::translate("MainWindow", "Close", Q_NULLPTR));
+        actionClose->setText(QApplication::translate("MainWindow", "&Close", Q_NULLPTR));
+        actionAbout->setText(QApplication::translate("MainWindow", "About", Q_NULLPTR));
+        actionLicense->setText(QApplication::translate("MainWindow", "License", Q_NULLPTR));
         pushButton->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "PDF file", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Out dir", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("MainWindow", "Convert to .png", Q_NULLPTR));
         menuFile->setTitle(QApplication::translate("MainWindow", "&File", Q_NULLPTR));
+        menuHelp->setTitle(QApplication::translate("MainWindow", "&Help", Q_NULLPTR));
     } // retranslateUi
 
 };
