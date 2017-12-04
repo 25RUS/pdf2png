@@ -1,6 +1,6 @@
 Summary:	PDF to PNG converter
 Name:		pdf2png	
-Version:	0.3.1
+Version:	0.3
 Release:	1
 License:	GPLv3
 Group:		Office 
