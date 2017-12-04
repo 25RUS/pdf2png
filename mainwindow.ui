@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>491</width>
-    <height>185</height>
+    <width>485</width>
+    <height>194</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>pdf2png</string>
+   <string>PDF2PNG</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>pdf2png.png</normaloff>pdf2png.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pushButton">
@@ -89,14 +93,50 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>290</x>
       <y>90</y>
       <width>181</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Convert to .png</string>
+     <string>Convert to PNG</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>90</y>
+      <width>83</width>
+      <height>29</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>95</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DPI</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>95</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Quality</string>
     </property>
    </widget>
   </widget>
@@ -105,7 +145,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>491</width>
+     <width>485</width>
      <height>27</height>
     </rect>
    </property>
@@ -141,12 +181,12 @@
   </action>
   <action name="actionAbout">
    <property name="text">
-    <string>About</string>
+    <string>&amp;About</string>
    </property>
   </action>
   <action name="actionLicense">
    <property name="text">
-    <string>License</string>
+    <string>&amp;License</string>
    </property>
   </action>
  </widget>

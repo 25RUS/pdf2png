@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -40,6 +41,9 @@ public:
     QLabel *label;
     QLabel *label_2;
     QPushButton *pushButton_3;
+    QComboBox *comboBox;
+    QLabel *label_3;
+    QLabel *label_4;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuHelp;
@@ -50,7 +54,10 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(491, 185);
+        MainWindow->resize(485, 194);
+        QIcon icon;
+        icon.addFile(QStringLiteral("pdf2png.png"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
         actionClose = new QAction(MainWindow);
         actionClose->setObjectName(QStringLiteral("actionClose"));
         actionAbout = new QAction(MainWindow);
@@ -79,11 +86,20 @@ public:
         label_2->setGeometry(QRect(10, 54, 55, 21));
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(160, 90, 181, 31));
+        pushButton_3->setGeometry(QRect(290, 90, 181, 31));
+        comboBox = new QComboBox(centralWidget);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(70, 90, 83, 29));
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(160, 95, 31, 21));
+        label_4 = new QLabel(centralWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(10, 95, 51, 21));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 491, 27));
+        menuBar->setGeometry(QRect(0, 0, 485, 27));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuHelp = new QMenu(menuBar);
@@ -109,15 +125,17 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "pdf2png", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "PDF2PNG", Q_NULLPTR));
         actionClose->setText(QApplication::translate("MainWindow", "&Close", Q_NULLPTR));
-        actionAbout->setText(QApplication::translate("MainWindow", "About", Q_NULLPTR));
-        actionLicense->setText(QApplication::translate("MainWindow", "License", Q_NULLPTR));
+        actionAbout->setText(QApplication::translate("MainWindow", "&About", Q_NULLPTR));
+        actionLicense->setText(QApplication::translate("MainWindow", "&License", Q_NULLPTR));
         pushButton->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "PDF file", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Out dir", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("MainWindow", "Convert to .png", Q_NULLPTR));
+        pushButton_3->setText(QApplication::translate("MainWindow", "Convert to PNG", Q_NULLPTR));
+        label_3->setText(QApplication::translate("MainWindow", "DPI", Q_NULLPTR));
+        label_4->setText(QApplication::translate("MainWindow", "Quality", Q_NULLPTR));
         menuFile->setTitle(QApplication::translate("MainWindow", "&File", Q_NULLPTR));
         menuHelp->setTitle(QApplication::translate("MainWindow", "&Help", Q_NULLPTR));
     } // retranslateUi

@@ -20,6 +20,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionClose, &QAction::triggered, this, &MainWindow::close);
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
     connect(ui->actionLicense, &QAction::triggered, this, &MainWindow::license);
+
+    QStringList q = {"1200", "600", "300", "150", "96", "75"};
+    ui->comboBox->addItems(q);
 }
 
 MainWindow::~MainWindow()
@@ -30,6 +33,7 @@ MainWindow::~MainWindow()
 QProcess *cut = new QProcess();
 QProcess *convert = new QProcess();
 QProcess *clear = new QProcess();
+//QString quality;
 
 //PDF selection
 void MainWindow::on_pushButton_clicked()
@@ -66,7 +70,7 @@ void MainWindow::on_pushButton_3_clicked()
         QDir sourcedir(ui->lineEdit_2->text());
         QStringList svgs = sourcedir.entryList(QStringList() << "*.svg", QDir::Files);
 
-        QProgressDialog* pprd = new QProgressDialog("Progressing the data...", "&Cancel", 0, svgs.count());
+        QProgressDialog* pprd = new QProgressDialog("Converting...", "&Cancel", 0, svgs.count());
         pprd->setMinimumDuration(0);
         pprd->setWindowTitle("Please Wait");
 
@@ -80,7 +84,7 @@ void MainWindow::on_pushButton_3_clicked()
             }
             QString outfile = QString::number(i+1);
             convert->setWorkingDirectory(ui->lineEdit_2->text());
-            convert->start("inkscape \"" + svgs[i] + "\" --export-png=" + outfile + ".png");
+            convert->start("inkscape \"" + svgs[i] + "\" --export-png=" + outfile + ".png --export-dpi=" + ui->comboBox->currentText());
             if(!convert->waitForStarted() || !convert->waitForFinished())
                 return;
             QFile(ui->lineEdit_2->text() + '/' + svgs[i]).remove(); 
@@ -116,3 +120,9 @@ void MainWindow::license()
     }
     QMessageBox::information(this, "License", txt);
 }
+
+//select quality
+//void MainWindow::on_comboBox_activated(const QString &arg1)
+//{
+//    quality = ui->comboBox->currentText();
+//}
