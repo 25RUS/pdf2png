@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
     connect(ui->actionLicense, &QAction::triggered, this, &MainWindow::license);
 
-    QStringList q = {"1200", "600", "300", "150", "96", "75"};
+    QStringList q = {"1200", "600", "300", "200", "150", "100", "96", "75", "72"};
     ui->comboBox->addItems(q);
 }
 
@@ -66,6 +66,7 @@ void MainWindow::on_pushButton_3_clicked()
         cut->start("pdf2svg \"" + ui->lineEdit->text() + "\" %d.svg all");
         if(!cut->waitForStarted() || !cut->waitForFinished())
             return;
+        cut->close();
 
         QDir sourcedir(ui->lineEdit_2->text());
         QStringList svgs = sourcedir.entryList(QStringList() << "*.svg", QDir::Files);
@@ -91,10 +92,10 @@ void MainWindow::on_pushButton_3_clicked()
         }
         pprd->setValue(svgs.count()) ;
         delete pprd;
-        QMessageBox::information(this, "pdf2png", "converting done!");
+        QMessageBox::information(this, "PDF2PNG", "Converting done!");
     }
     else
-       QMessageBox::critical(this, "ERROR!", "Выберете PDF и куда складывать результат!");
+       QMessageBox::critical(this, "ERROR!", "Empty fields!");
 }
 
 //about
